@@ -8,7 +8,8 @@
       await mongoose.connect(
         db,
         {
-          useNewUrlParser: true
+          useNewUrlParser: true,
+          useUnifiedTopology: true
         }
       );
   

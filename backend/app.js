@@ -1,5 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const bodyParser = require('body-parser');
 var cors = require('cors');
 
 //routes
@@ -11,6 +12,8 @@ connectDB();
 app.use(cors({ origin:true, credentials: true }));
 
 app.get('/',(req,res) => res.send('Hello world!'));
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/users',users);
 

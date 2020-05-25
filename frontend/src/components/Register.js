@@ -18,7 +18,6 @@ class Register extends Component {
     };
 
     onSubmit = e => {
-        e.preventDefault();
 
         const data = {
             fullname: this.state.fullName,
@@ -27,20 +26,21 @@ class Register extends Component {
         };
 
         axios
-            .post('http://localhost:8082/api/users',data)
+            .post('http://localhost:8082/api/users/',data)
             .then(res => {
                 // this.setState({
                 //     fullName: '',
                 //     email: '',
                 //     password: ''
                 // })
+                console.log(res);
             })
             .catch(err => {
                 console.log("Error adding user!");
             })
         
         axios
-            .get('http://localhost:8082/api/users/Washington',data)
+            .get('http://localhost:8082/api/users/' + this.props.match.params.id,data)
             .then(res => {
                 console.log(data);
             })
@@ -54,18 +54,18 @@ class Register extends Component {
             <div className="LandingPage">
                 <div className="container-fluid">
                     <form noValidate onSubmit={this.onSubmit}>
-                        <h1 class="h3 mb-3 font-weight-normal">Register!</h1>
+                        <h1 className="h3 mb-3 font-weight-normal">Register!</h1>
                         <label for="name">Full Name!</label>
 
-                        <input type="text" class="form-control" id="name" name="fullname" value={this.state.fullname} onChange={this.onChange}></input>
+                        <input type="text" className="form-control" id="name" name="fullname" value={this.state.fullname} onChange={this.onChange}></input>
                         <label for="inputEmail">Email</label>
 
-                        <input type="email" class="form-control" id="inputEmail" name="email" value={this.state.email} onChange={this.onChange}></input>
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <input type="email" className="form-control" id="inputEmail" name="email" value={this.state.email} onChange={this.onChange}></input>
+                        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                         <label for="pw">Password</label>
 
-                        <input type="password" class="form-control" id="pw" name="password" value={this.state.password} onChange={this.onChange}></input><br />
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <input type="password" className="form-control" id="pw" name="password" value={this.state.password} onChange={this.onChange}></input><br />
+                        <button type="submit" className="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
