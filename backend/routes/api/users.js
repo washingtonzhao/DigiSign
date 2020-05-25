@@ -28,7 +28,7 @@ router.get('/:username', (req, res) => {
       .catch(err => res.status(404).json({ nouserfound: 'No User found' }));
   });
   
-// @route GET api/users
+// @route POST api/users
 // @description add/save user
 // @access Public
 router.post('/', (req, res) => {

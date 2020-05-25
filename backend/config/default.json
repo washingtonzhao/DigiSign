@@ -1,6 +1,6 @@
 
 {
-    "mongoURI":
-    "mongodb+srv://washzhao:Washzhao0929!@initialcluster-x7sku.mongodb.net/test?retryWrites=true&w=majority"
+    "mongoURL":
+    "mongodb+srv://washzhao:middie0929@digisign-x7sku.mongodb.net/test?retryWrites=true&w=majority"
 }
   
